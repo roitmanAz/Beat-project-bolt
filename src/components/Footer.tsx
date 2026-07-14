@@ -19,7 +19,7 @@ const MODELS = ["PSR-SX900", "PSR-SX700", "Genos", "Genos 2", "Tyros 5", "CVP-90
 
 export function Footer() {
   return (
-    <footer id="contact" className="relative" style={{ background: "#071428" }}>
+    <footer id="contact" className="relative" style={{ background: "#080f1a" }}>
       <div className="absolute top-0 inset-x-0 h-px" style={{ background: "linear-gradient(90deg,transparent,rgba(0,200,232,0.5),rgba(184,201,217,0.3),rgba(0,200,232,0.5),transparent)" }} />
 
       {/* Newsletter */}

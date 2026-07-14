@@ -29,9 +29,9 @@ function BlogCard({ post, delay }: { post: Post; delay: number }) {
       style={{
         ...style,
         transitionDelay: `${delay}ms`,
-        background: "#fff",
+        background: "#101e30",
         border: tilt.on ? "1.5px solid rgba(0,200,232,0.4)" : "1px solid rgba(0,200,232,0.14)",
-        boxShadow: tilt.on ? "0 14px 40px rgba(5,15,31,0.12)" : "0 2px 14px rgba(5,15,31,0.07)",
+        boxShadow: tilt.on ? "0 14px 40px rgba(0,0,0,0.4)" : "0 2px 14px rgba(0,0,0,0.3)",
       }}
       onMouseMove={(e) => {
         const r = e.currentTarget.getBoundingClientRect();
@@ -54,17 +54,17 @@ function BlogCard({ post, delay }: { post: Post; delay: number }) {
       <div className="p-6">
         <div className="flex items-center gap-4 mb-4">
           <div className="flex items-center gap-1.5">
-            <Calendar size={12} style={{ color: "#0098b8" }} />
+            <Calendar size={12} style={{ color: "#00c8e8" }} />
             <span className="font-mono text-xs" style={{ color: "#8097ae" }}>{post.date}</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <Clock size={12} style={{ color: "#0098b8" }} />
+            <Clock size={12} style={{ color: "#00c8e8" }} />
             <span className="font-mono text-xs" style={{ color: "#8097ae" }}>קריאה של {post.readTime}</span>
           </div>
         </div>
-        <h3 className="font-display font-semibold text-sm leading-snug mb-3 line-clamp-2 transition-colors duration-300 group-hover:text-cyan-mid" style={{ color: "#071428" }}>{post.title}</h3>
-        <p className="font-body text-xs leading-relaxed mb-5 line-clamp-3" style={{ color: "#5a7a9a" }}>{post.excerpt}</p>
-        <div className="flex items-center gap-2 font-mono text-xs transition-colors" style={{ color: "#0098b8" }}>
+        <h3 className="font-display font-semibold text-sm leading-snug mb-3 line-clamp-2 transition-colors duration-300 group-hover:text-cyan-mid" style={{ color: "#eaf4fa" }}>{post.title}</h3>
+        <p className="font-body text-xs leading-relaxed mb-5 line-clamp-3" style={{ color: "#8097ae" }}>{post.excerpt}</p>
+        <div className="flex items-center gap-2 font-mono text-xs transition-colors" style={{ color: "#00c8e8" }}>
           <span>קרא עוד</span>
           <ArrowLeft size={14} />
         </div>
@@ -77,14 +77,14 @@ export function Blog() {
   const ref = useReveal();
 
   return (
-    <section id="blog" className="py-24 relative" style={{ background: "#fff" }}>
+    <section id="blog" className="py-24 relative" style={{ background: "#0d1a2a" }}>
       <div className="absolute top-0 inset-x-0 section-divider" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={ref} className="reveal flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
           <div>
-            <p className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#0098b8" }}>// בלוג מקצועי</p>
-            <h2 className="font-display font-bold text-4xl sm:text-5xl" style={{ color: "#071428" }}>ידע ומשאבים</h2>
-            <p className="font-body mt-3 max-w-md" style={{ color: "#5a7a9a" }}>מאמרים, מדריכים וטיפים מקצועיים לנגן המודרני.</p>
+            <p className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8e8" }}>// בלוג מקצועי</p>
+            <h2 className="font-display font-bold text-4xl sm:text-5xl" style={{ color: "#eaf4fa" }}>ידע ומשאבים</h2>
+            <p className="font-body mt-3 max-w-md" style={{ color: "#8097ae" }}>מאמרים, מדריכים וטיפים מקצועיים לנגן המודרני.</p>
           </div>
           <a href="#blog" className="btn-neon px-6 py-3 rounded-xl text-xs flex items-center gap-2 self-start sm:self-auto">
             <span>לכל הפוסטים</span>

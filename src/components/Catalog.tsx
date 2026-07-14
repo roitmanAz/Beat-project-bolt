@@ -37,9 +37,9 @@ function BeatCard({ beat, isPlaying, isLiked, onPlay, onLike, delay }: { beat: B
       style={{
         ...style,
         transitionDelay: `${delay}ms`,
-        background: "#fff",
+        background: "#101e30",
         border: tilt.on ? "1.5px solid rgba(0,200,232,0.4)" : "1px solid rgba(0,200,232,0.14)",
-        boxShadow: tilt.on ? "0 16px 50px rgba(5,15,31,0.15), 0 0 0 1px rgba(0,200,232,0.3), 0 0 25px rgba(0,200,232,0.1)" : "0 2px 16px rgba(5,15,31,0.08)",
+        boxShadow: tilt.on ? "0 16px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,200,232,0.3), 0 0 25px rgba(0,200,232,0.1)" : "0 2px 16px rgba(0,0,0,0.3)",
       }}
     >
       {tilt.on && (
@@ -55,7 +55,7 @@ function BeatCard({ beat, isPlaying, isLiked, onPlay, onLike, delay }: { beat: B
         <button
           onClick={(e) => { e.stopPropagation(); onLike(); }}
           className="absolute top-3 left-3 w-9 h-9 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
-          style={{ background: "rgba(255,255,255,0.9)", border: "1px solid rgba(0,200,232,0.2)", backdropFilter: "blur(8px)" }}
+          style={{ background: "rgba(16,30,48,0.9)", border: "1px solid rgba(0,200,232,0.2)", backdropFilter: "blur(8px)" }}
         >
           <Heart size={16} className={isLiked ? "fill-red-400 text-red-400" : ""} style={isLiked ? {} : { color: "#8097ae" }} />
         </button>
@@ -70,7 +70,7 @@ function BeatCard({ beat, isPlaying, isLiked, onPlay, onLike, delay }: { beat: B
       </div>
 
       {isPlaying && (
-        <div className="px-4 py-2 border-b" style={{ borderColor: "rgba(0,200,232,0.12)", background: "#f8fbfe" }}>
+        <div className="px-4 py-2 border-b" style={{ borderColor: "rgba(0,200,232,0.12)", background: "#0d1a2a" }}>
           <Visualizer barCount={32} className="h-10" isPlaying={true} light={true} />
         </div>
       )}
@@ -78,19 +78,19 @@ function BeatCard({ beat, isPlaying, isLiked, onPlay, onLike, delay }: { beat: B
       <div className="p-5">
         <div className="flex items-start justify-between mb-3">
           <div>
-            <h3 className="font-display font-semibold text-sm tracking-wide leading-tight" style={{ color: "#071428" }}>{beat.title}</h3>
+            <h3 className="font-display font-semibold text-sm tracking-wide leading-tight" style={{ color: "#eaf4fa" }}>{beat.title}</h3>
             <div className="flex items-center gap-2 mt-1.5">
               <span className="tag-metal">{beat.genre}</span>
               <span className="font-mono text-xs" style={{ color: "#8097ae" }}>{beat.bpm} BPM</span>
             </div>
           </div>
-          <div className="font-display font-bold text-xl" style={{ color: "#0098b8" }}>₪{beat.price}</div>
+          <div className="font-display font-bold text-xl" style={{ color: "#00c8e8" }}>₪{beat.price}</div>
         </div>
 
         <div className="flex items-center gap-1.5 mb-4">
           <div className="flex gap-0.5">
             {Array.from({ length: 5 }).map((_, i) => (
-              <Star key={i} size={12} className={i < Math.floor(beat.rating) ? "fill-yellow-400 text-yellow-400" : ""} style={i >= Math.floor(beat.rating) ? { color: "#d0dae4" } : {}} />
+              <Star key={i} size={12} className={i < Math.floor(beat.rating) ? "fill-yellow-400 text-yellow-400" : ""} style={i >= Math.floor(beat.rating) ? { color: "#2a4060" } : {}} />
             ))}
           </div>
           <span className="font-mono text-xs" style={{ color: "#8097ae" }}>{beat.rating} ({beat.reviews})</span>
@@ -114,13 +114,13 @@ export function Catalog() {
   const filtered = genre === "הכל" ? BEATS : BEATS.filter((b) => b.genre === genre);
 
   return (
-    <section id="catalog" className="py-24 relative" style={{ background: "#f0f5fb" }}>
+    <section id="catalog" className="py-24 relative" style={{ background: "#0a1420" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={ref} className="reveal mb-14 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <div>
-            <p className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#0098b8" }}>// קטלוג מקצבים</p>
-            <h2 className="font-display font-bold text-4xl sm:text-5xl" style={{ color: "#071428" }}>מקצבים מובחרים</h2>
-            <p className="font-body mt-3 max-w-md" style={{ color: "#5a7a9a" }}>מאות מקצבים מקצועיים מוכנים לאורגן יאמהה — בחר, שמע, ורכוש.</p>
+            <p className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8e8" }}>// קטלוג מקצבים</p>
+            <h2 className="font-display font-bold text-4xl sm:text-5xl" style={{ color: "#eaf4fa" }}>מקצבים מובחרים</h2>
+            <p className="font-body mt-3 max-w-md" style={{ color: "#8097ae" }}>מאות מקצבים מקצועיים מוכנים לאורגן יאמהה — בחר, שמע, ורכוש.</p>
           </div>
           <a href="#catalog" className="btn-neon px-6 py-3 rounded-xl text-xs flex items-center gap-2 self-start sm:self-auto">
             <span>לקטלוג המלא</span>
@@ -134,7 +134,7 @@ export function Catalog() {
               key={g}
               onClick={() => setGenre(g)}
               className="flex-shrink-0 px-5 py-2 rounded-full font-body font-medium text-sm tracking-wide transition-all duration-300"
-              style={g === genre ? { background: "linear-gradient(135deg,#00c8e8,#0098b8)", color: "#fff", boxShadow: "0 4px 16px rgba(0,200,232,0.35)" } : { background: "#fff", color: "#3a5c78", border: "1px solid rgba(0,200,232,0.2)", boxShadow: "0 1px 4px rgba(5,15,31,0.06)" }}
+              style={g === genre ? { background: "linear-gradient(135deg,#00c8e8,#0098b8)", color: "#fff", boxShadow: "0 4px 16px rgba(0,200,232,0.35)" } : { background: "#101e30", color: "#a0bcd0", border: "1px solid rgba(0,200,232,0.2)", boxShadow: "0 1px 4px rgba(0,0,0,0.2)" }}
             >
               {g}
             </button>

@@ -25,9 +25,9 @@ function NavArrow({ dir, disabled, onClick }: { dir: "right" | "left"; disabled:
       onClick={onClick}
       disabled={disabled}
       className="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 disabled:opacity-30"
-      style={{ background: "#fff", border: "1px solid rgba(0,200,232,0.25)", boxShadow: "0 1px 6px rgba(5,15,31,0.07)" }}
+      style={{ background: "#101e30", border: "1px solid rgba(0,200,232,0.25)", boxShadow: "0 1px 6px rgba(0,0,0,0.3)" }}
       onMouseEnter={(e) => { if (!disabled) { e.currentTarget.style.borderColor = "rgba(0,200,232,0.6)"; e.currentTarget.style.boxShadow = "0 0 12px rgba(0,200,232,0.2)"; } }}
-      onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(0,200,232,0.25)"; e.currentTarget.style.boxShadow = "0 1px 6px rgba(5,15,31,0.07)"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(0,200,232,0.25)"; e.currentTarget.style.boxShadow = "0 1px 6px rgba(0,0,0,0.3)"; }}
     >
       {dir === "right" ? <ChevronRight size={20} style={{ color: "#5a7a9a" }} /> : <ChevronLeft size={20} style={{ color: "#5a7a9a" }} />}
     </button>
@@ -49,7 +49,7 @@ function EventCard({ event, tall, compact }: { event: Event; tall?: boolean; com
         setCursor({ x: ((e.clientX - r.left) / r.width) * 100, y: ((e.clientY - r.top) / r.height) * 100 });
       }}
       style={{
-        boxShadow: hover ? "0 16px 48px rgba(5,15,31,0.2), 0 0 0 1.5px rgba(0,200,232,0.45)" : "0 4px 18px rgba(5,15,31,0.1), 0 0 0 1px rgba(0,200,232,0.1)",
+        boxShadow: hover ? "0 16px 48px rgba(0,0,0,0.5), 0 0 0 1.5px rgba(0,200,232,0.45)" : "0 4px 18px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,200,232,0.1)",
         transform: hover ? "translateY(-5px)" : "translateY(0)",
         transition: "all 0.38s cubic-bezier(0.25,0.1,0.25,1)",
       }}
@@ -83,14 +83,14 @@ export function Showcase() {
   const [idx, setIdx] = useState(0);
 
   return (
-    <section id="showcase" className="py-24 relative" style={{ background: "#f0f5fb" }}>
+    <section id="showcase" className="py-24 relative" style={{ background: "#0a1420" }}>
       <div className="absolute top-0 inset-x-0 section-divider" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={ref} className="reveal flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
           <div>
-            <p className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#0098b8" }}>// תיק עבודות</p>
-            <h2 className="font-display font-bold text-4xl sm:text-5xl" style={{ color: "#071428" }}>מהאירועים האחרונים</h2>
-            <p className="font-body mt-3 max-w-md" style={{ color: "#5a7a9a" }}>הצצה לאירועים שבהם המקצבים שלנו הפכו ערב רגיל לחוויה בלתי נשכחת.</p>
+            <p className="font-mono text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "#00c8e8" }}>// תיק עבודות</p>
+            <h2 className="font-display font-bold text-4xl sm:text-5xl" style={{ color: "#eaf4fa" }}>מהאירועים האחרונים</h2>
+            <p className="font-body mt-3 max-w-md" style={{ color: "#8097ae" }}>הצצה לאירועים שבהם המקצבים שלנו הפכו ערב רגיל לחוויה בלתי נשכחת.</p>
           </div>
           <div className="flex items-center gap-3">
             <NavArrow dir="right" disabled={idx === 0} onClick={() => setIdx((r) => Math.max(0, r - 1))} />
