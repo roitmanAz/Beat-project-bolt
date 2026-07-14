@@ -49,9 +49,35 @@ export function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style={{ background: "linear-gradient(160deg, #0a1420 0%, #0d1a2a 40%, #0a1622 100%)" }}>
       <div className="absolute inset-0 grid-overlay" style={{ opacity: 0.6, ...p(4) }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(120deg, rgba(0,200,232,0.06), rgba(0,160,255,0.04), rgba(0,220,180,0.05), rgba(0,120,200,0.04), rgba(0,200,232,0.06))", backgroundSize: "300% 300%", animation: "auroraShift 18s ease-in-out infinite" }} />
       <div className="absolute inset-x-0 h-px pointer-events-none animate-scan-line" style={{ background: "linear-gradient(90deg,transparent,rgba(0,200,232,0.4),transparent)", animationDuration: "6s" }} />
-      <div className="absolute pointer-events-none" style={{ top: "12%", left: "8%", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(0,200,232,0.12) 0%, transparent 70%)", ...p(16) }} />
-      <div className="absolute pointer-events-none" style={{ bottom: "18%", right: "6%", width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(ellipse, rgba(0,160,200,0.09) 0%, transparent 70%)", ...p(-10) }} />
+
+      <div className="absolute pointer-events-none" style={{ top: "12%", left: "8%", width: 400, height: 400, borderRadius: "50%", animation: "orbDrift1 14s ease-in-out infinite, colorCycle 10s ease-in-out infinite", ...p(16) }} />
+      <div className="absolute pointer-events-none" style={{ bottom: "18%", right: "6%", width: 320, height: 320, borderRadius: "50%", animation: "orbDrift2 16s ease-in-out infinite, colorCycle2 12s ease-in-out infinite", ...p(-10) }} />
+      <div className="absolute pointer-events-none" style={{ top: "40%", left: "55%", width: 260, height: 260, borderRadius: "50%", animation: "orbDrift3 20s ease-in-out infinite, colorCycle3 14s ease-in-out infinite", ...p(6) }} />
+
+      <div className="absolute pointer-events-none overflow-hidden" style={{ top: 0, left: "20%", width: "60%", height: "100%" }}>
+        <div className="absolute" style={{ width: "100%", height: "180%", top: "-10%", left: 0, background: "linear-gradient(180deg, transparent, rgba(0,200,232,0.08), rgba(0,160,255,0.05), transparent)", filter: "blur(40px)", animation: "beamSweep 8s ease-in-out infinite" }} />
+      </div>
+
+      {[...Array(14)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute pointer-events-none rounded-full"
+          style={{
+            left: `${(i * 7 + 5) % 95}%`,
+            top: `${(i * 13 + 10) % 80}%`,
+            width: 3 + (i % 3),
+            height: 3 + (i % 3),
+            background: i % 2 === 0 ? "rgba(0,200,232,0.6)" : "rgba(0,180,255,0.5)",
+            boxShadow: i % 2 === 0 ? "0 0 8px rgba(0,200,232,0.5)" : "0 0 8px rgba(0,180,255,0.4)",
+            animation: `particleFade ${4 + (i % 5)}s ease-in-out infinite`,
+            animationDelay: `${i * 0.4}s`,
+            ...p(i % 2 === 0 ? 8 : -6),
+          }}
+        />
+      ))}
+
       <div className="absolute bottom-[-60px] right-[-80px] pointer-events-none" style={{ opacity: 0.06, ...p(-5) }}>
         <Logo size={480} animated={false} />
       </div>
